@@ -38,7 +38,7 @@ jobs:
       id: create_release
       uses: actions/create-release@latest
       env:
-        GITHUB_TOKEN: "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"
+        GITHUB_TOKEN: "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"
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
