@@ -16,6 +16,9 @@ permissions:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
 
     runs-on: ubuntu-latest
 
