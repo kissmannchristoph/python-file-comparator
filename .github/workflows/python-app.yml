@@ -54,8 +54,8 @@ jobs:
         artifacts: "build/*.exe, README.md"
         bodyFile: "README.md"
         generateReleaseNotes: true
-        name: ${{ steps.generate_release_tag.outputs.next_release_tag }}
-        tag: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
+        name: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
+        tag: ${{ steps.generate_release_tag.outputs.next_release_tag }}
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout
       uses: actions/checkout@v4

@@ -1,5 +1,6 @@
 
 import base64
+import sys
 from typing import List
 
 from src.config.storage import Storage, StorageData
@@ -8,8 +9,9 @@ import numpy as np
 import src.file.file
 from src.config.storage import StorageData
 
-your_code = base64.b64encode(b"""
 
+for arg in sys.argv:
+    print('ARG ' + arg)
 
 g = Storage.getConfig().getStorages()
 comp = g[0].getStorage().compare()
@@ -32,6 +34,3 @@ if len(comp) == 0:
 #x = g[0].getStorage().proceedComparation(comp)
 
 #print(x)
-""")
-
-exec(base64.b64decode(your_code))
