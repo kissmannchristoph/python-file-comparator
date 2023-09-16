@@ -18,6 +18,10 @@ MAIN_PATH = os.path.dirname(os.path.realpath(__file__))
 print("start")
 print("MAIN_PATH: " + MAIN_PATH)
 
+if not MAIN_PATH is sys.argv[0]:
+    print("set new MAIN_PATH: " + os.path.dirname(sys.argv[0]))
+    MAIN_PATH = os.path.dirname(sys.argv[0])
+
 for arg in sys.argv:
     print("ARG: " + arg)
 
