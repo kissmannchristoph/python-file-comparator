@@ -3,10 +3,6 @@
 
 name: Python application
 
-on:
-  push:
-    branches: [ "release" ]
-
 permissions:
   contents: write
   pull-requests: write
@@ -41,21 +37,19 @@ jobs:
           nuitka-version: main
           script-name: main.py
           mingw64: true
-    - name: Generate release tag
-      id: generate_release_tag
-      uses: amitsingh-007/next-release-tag@v4.0.0
+    - uses: marvinpinto/action-automatic-releases@latest
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        tag_prefix: 'v'
-        tag_template: 'yyyy.mm.dd.i'
-    - uses: actions/checkout@v3
-    - uses: ncipollo/release-action@v1
-      with:
-        artifacts: "build/*.exe, README.md"
-        bodyFile: "README.md"
-        generateReleaseNotes: true
-        name: ${{ steps.generate_release_tag.outputs.next_release_tag }}
-        tag_name: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        automatic_release_tag: ${{ steps.generate_release_tag.outputs.next_release_tag }}
+        prerelease: false
+        title: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
+        files: |
+          README.md
+          build/*.exe
+          *.cmd
+          
+          
+          
           
           
           
