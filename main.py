@@ -1,29 +1,13 @@
-from typing import List
+import os
+import sys
 
-from src.config.storage import Storage, StorageData
-from array import array
-import numpy as np
-import src.file.file
-from src.config.storage import StorageData
+print('args')
 
-g = Storage.getConfig().getStorages()
-comp = g[0].getStorage().compare()
+for arg in sys.argv:
+    print('arg: ' + arg)
 
-for d in comp:
-    oldFile = 'None'
-    newFile = 'None'
+abs_pth = os.path.abspath(sys.argv[0])
+your_dir = os.path.dirname(abs_pth)
 
-    if not d.oldFile is None:
-        oldFile = d.oldFile.path
-
-    if not d.newFile is None:
-        newFile = d.newFile.path
-
-    print("Action: " + d.changedFileType.name + " newFile: " + newFile + " oldFile: " + oldFile)
-
-if len(comp) == 0:
-    print('NO CHANGES')
-
-#x = g[0].getStorage().proceedComparation(comp)
-
-#print(x)
+for val in abs_pth,your_dir:
+    print(val)
