@@ -38,6 +38,9 @@ for tpl in copyTemplates(ROOT_PATH):
 for tpl in copyTemplates(MAIN_PATH):
     print("PACKAGE Template: " + tpl)
 
+src.cmd.cmd.watchInput()
+
+print("watchInput")
 
 def compTest():
     g = Storage.getConfig().getStorages()

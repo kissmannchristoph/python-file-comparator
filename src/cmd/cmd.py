@@ -27,3 +27,11 @@ def getArg(key: str) -> KeyValuePar | None:
                 break
 
     return rt
+
+def proceedInput(input: str):
+    print(input)
+
+def watchInput():
+    _input = str(input())
+    proceedInput(_input)
+    watchInput()
