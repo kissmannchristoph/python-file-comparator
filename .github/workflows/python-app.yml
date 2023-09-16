@@ -41,12 +41,19 @@ jobs:
           nuitka-version: main
           script-name: main.py
           mingw64: true
+    - name: Generate release tag
+      id: generate_release_tag
+      uses: amitsingh-007/next-release-tag@v4.0.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        tag_prefix: 'v'
+        tag_template: 'yyyy.mm.dd.i'
     - uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: "1.2.7"
+        automatic_release_tag: ${{ steps.generate_release_tag.outputs.next_release_tag }}
         prerelease: false
-        title: "Development Build"
+        title: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
         files: |
           README.md
           build/*.exe
