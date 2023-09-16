@@ -10,7 +10,9 @@ on:
     branches: [ "main" ]
 
 permissions:
-  contents: read
+    contents: write
+    pull-requests: write
+    repository-projects: write
 
 jobs:
   build:
@@ -37,7 +39,7 @@ jobs:
     - uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: "latest"
+        automatic_release_tag: "1.0"
         prerelease: true
         title: "Development Build"
         files: |
