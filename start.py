@@ -8,4 +8,4 @@ argsString = ""
 for arg in sys.argv:
     argsString += " " + arg
 
-os.system("python main.py '" + MAIN_PATH + "'" + argsString)
+os.system("python main.py '" + MAIN_PATH + "' --fromstart" + argsString)

@@ -1,4 +1,3 @@
-
 import base64
 import os
 import sys
@@ -12,15 +11,23 @@ from src.config.storage import StorageData
 import src.cmd.cmd
 from src.file.template import copyTemplates
 
-ROOT_PATH = sys.argv[0]
+
 MAIN_PATH = os.path.dirname(os.path.realpath(__file__))
 
 print("start")
 print("MAIN_PATH: " + MAIN_PATH)
 
-if not MAIN_PATH is sys.argv[0]:
-    print("set new MAIN_PATH: " + os.path.dirname(sys.argv[0]))
-    MAIN_PATH = os.path.dirname(sys.argv[0])
+def getSysPath():
+    if src.cmd.cmd.getArg('fromstart') is None:
+        return sys.argv[0]
+    else:
+        return sys.argv[1]
+
+ROOT_PATH = getSysPath()
+
+if MAIN_PATH is not getSysPath():
+    print("set new MAIN_PATH: " + os.path.dirname(getSysPath()))
+    MAIN_PATH = os.path.dirname(getSysPath())
 
 for arg in sys.argv:
     print("ARG: " + arg)
@@ -30,6 +37,7 @@ for tpl in copyTemplates(ROOT_PATH):
 
 for tpl in copyTemplates(MAIN_PATH):
     print("PACKAGE Template: " + tpl)
+
 
 def compTest():
     g = Storage.getConfig().getStorages()
@@ -49,4 +57,3 @@ def compTest():
 
     if len(comp) == 0:
         print('NO CHANGES')
-
