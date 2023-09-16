@@ -41,12 +41,6 @@ jobs:
           nuitka-version: main
           script-name: main.py
           mingw64: true
-    - name: Create Release Notes
-      uses: docker://decathlon/release-notes-generator-action:2.0.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        OUTPUT_FOLDER: temp_release_notes
-        USE_MILESTONE_TITLE: "true"
     - name: Generate release tag
       id: generate_release_tag
       uses: amitsingh-007/next-release-tag@v4.0.0
@@ -54,14 +48,16 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         tag_prefix: 'v'
         tag_template: 'yyyy.mm.dd.i'
-    - uses: actions/checkout@v3
-    - uses: ncipollo/release-action@v1
+    - uses: marvinpinto/action-automatic-releases@latest
       with:
-        artifacts: "build/main.exe, README.md"
-        generateReleaseNotes: true
-        name: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
-        tag: ${{ steps.generate_release_tag.outputs.next_release_tag }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        automatic_release_tag: ${{ steps.generate_release_tag.outputs.next_release_tag }}
+        prerelease: false
+        title: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
+        files: |
+          README.md
+          build/*.exe
+          *.cmd
     - name: Checkout
       uses: actions/checkout@v4
     - name: Login to Docker Hub
