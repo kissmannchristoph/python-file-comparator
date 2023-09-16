@@ -15,11 +15,17 @@ from src.file.template import copyTemplates
 ROOT_PATH = sys.argv[0]
 MAIN_PATH = os.path.dirname(os.path.realpath(__file__))
 
+print("start")
+
+for arg in sys.argv:
+    print("ARG " + arg)
+
 for tpl in copyTemplates(ROOT_PATH):
     print("Template: " + tpl)
 
 for tpl in copyTemplates(MAIN_PATH):
     print("PACKAGE Template: " + tpl)
+
 def compTest():
     g = Storage.getConfig().getStorages()
     comp = g[0].getStorage().compare()
