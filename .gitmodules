@@ -1,0 +1,3 @@
+[submodule "src/shared"]
+	path = src/shared
+	url = git@gitlab.com:minecraftserverclientsteuerung/shared-code.git
