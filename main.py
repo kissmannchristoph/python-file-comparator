@@ -11,7 +11,6 @@ from src.config.storage import StorageData
 import src.cmd.cmd
 from src.file.template import copyTemplates
 
-
 MAIN_PATH = os.path.dirname(os.path.realpath(__file__))
 
 print("start")
@@ -22,6 +21,7 @@ def getSysPath():
         return sys.argv[0].replace("'", "")
     else:
         return sys.argv[1].replace("'", "")
+
 
 ROOT_PATH = getSysPath()
 
