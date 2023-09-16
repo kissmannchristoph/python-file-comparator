@@ -1,7 +1,5 @@
 
 import base64
-
-your_code = base64.b64encode(b"""
 from typing import List
 
 from src.config.storage import Storage, StorageData
@@ -9,6 +7,9 @@ from array import array
 import numpy as np
 import src.file.file
 from src.config.storage import StorageData
+
+your_code = base64.b64encode(b"""
+
 
 g = Storage.getConfig().getStorages()
 comp = g[0].getStorage().compare()
