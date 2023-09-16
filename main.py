@@ -15,17 +15,17 @@ from src.file.template import copyTemplates
 MAIN_PATH = os.path.dirname(os.path.realpath(__file__))
 
 print("start")
-print("MAIN_PATH: " + MAIN_PATH)
+
 
 def getSysPath():
     if src.cmd.cmd.getArg('fromstart') is None:
-        return sys.argv[0]
+        return sys.argv[0].replace("'", "")
     else:
-        return sys.argv[1]
+        return sys.argv[1].replace("'", "")
 
 ROOT_PATH = getSysPath()
 
-if MAIN_PATH is not getSysPath():
+if MAIN_PATH != getSysPath():
     print("set new MAIN_PATH: " + os.path.dirname(getSysPath()))
     MAIN_PATH = os.path.dirname(getSysPath())
 
