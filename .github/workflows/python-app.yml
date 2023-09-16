@@ -54,9 +54,8 @@ jobs:
         artifacts: "build/*.exe"
         bodyFile: "README.md"
         generateReleaseNotes: true
-          
-          
-          
+        name: ${{ steps.generate_release_tag.outputs.next_release_tag }}
+        tag: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
           
           
           
