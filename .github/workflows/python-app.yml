@@ -34,20 +34,15 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - uses: Nuitka/Nuitka-Action@main
-      with:
-          nuitka-version: main
-          script-name: main.py
-    - uses: marvinpinto/action-automatic-releases@latest
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@latest
       env:
         GITHUB_TOKEN: "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"
-        repo_token: "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"
       with:
-        repo_token: "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"
-        automatic_release_tag: "latest"
-        prerelease: true
-        title: "Development Build"
-        files: |
-          README.md
-          build/*.exe
-          *.cmd
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          s
+        draft: false
+        prerelease: false
