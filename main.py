@@ -16,9 +16,10 @@ ROOT_PATH = sys.argv[0]
 MAIN_PATH = os.path.dirname(os.path.realpath(__file__))
 
 print("start")
+print("MAIN_PATH: " + MAIN_PATH)
 
 for arg in sys.argv:
-    print("ARG " + arg)
+    print("ARG: " + arg)
 
 for tpl in copyTemplates(ROOT_PATH):
     print("Template: " + tpl)
