@@ -1,5 +1,6 @@
 
 import base64
+import os
 import sys
 from typing import List
 
@@ -8,29 +9,33 @@ from array import array
 import numpy as np
 import src.file.file
 from src.config.storage import StorageData
+import src.cmd.cmd
+from src.file.template import copyTemplates
 
+ROOT_PATH = sys.argv[0]
+MAIN_PATH = os.path.dirname(os.path.realpath(__file__))
 
-for arg in sys.argv:
-    print('ARG ' + arg)
+for tpl in copyTemplates(ROOT_PATH):
+    print("Template: " + tpl)
 
-g = Storage.getConfig().getStorages()
-comp = g[0].getStorage().compare()
+for tpl in copyTemplates(MAIN_PATH):
+    print("PACKAGE Template: " + tpl)
+def compTest():
+    g = Storage.getConfig().getStorages()
+    comp = g[0].getStorage().compare()
 
-for d in comp:
-    oldFile = 'None'
-    newFile = 'None'
+    for d in comp:
+        oldFile = 'None'
+        newFile = 'None'
 
-    if not d.oldFile is None:
-        oldFile = d.oldFile.path
+        if not d.oldFile is None:
+            oldFile = d.oldFile.path
 
-    if not d.newFile is None:
-        newFile = d.newFile.path
+        if not d.newFile is None:
+            newFile = d.newFile.path
 
-    print("Action: " + d.changedFileType.name + " newFile: " + newFile + " oldFile: " + oldFile)
+        print("Action: " + d.changedFileType.name + " newFile: " + newFile + " oldFile: " + oldFile)
 
-if len(comp) == 0:
-    print('NO CHANGES')
+    if len(comp) == 0:
+        print('NO CHANGES')
 
-#x = g[0].getStorage().proceedComparation(comp)
-
-#print(x)
