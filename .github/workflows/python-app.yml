@@ -39,10 +39,11 @@ jobs:
           nuitka-version: main
           script-name: main.py
     - uses: marvinpinto/action-automatic-releases@latest
+      env:
+        GITHUB_TOKEN: "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"
+        repo_token: "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"
       with:
         repo_token: "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"
-        env:
-          GITHUB_TOKEN: "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"
         automatic_release_tag: "latest"
         prerelease: true
         title: "Development Build"
