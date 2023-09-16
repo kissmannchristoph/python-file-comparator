@@ -10,9 +10,9 @@ on:
     branches: [ "main" ]
 
 permissions:
-    contents: write
-    pull-requests: write
-    repository-projects: write
+  contents: write
+  pull-requests: write
+  repository-projects: write
 
 jobs:
   build:
@@ -36,10 +36,14 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - uses: Nuitka/Nuitka-Action@main
+      with:
+          nuitka-version: main
+          script-name: main.py
     - uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: "1.0"
+        automatic_release_tag: "latest"
         prerelease: true
         title: "Development Build"
         files: |
