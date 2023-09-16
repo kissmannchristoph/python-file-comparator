@@ -2,18 +2,35 @@
 import base64
 
 your_code = base64.b64encode(b"""
-import os
-import sys
-print('args')
+from typing import List
 
-for arg in sys.argv:
-    print('arg: ' + arg)
+from src.config.storage import Storage, StorageData
+from array import array
+import numpy as np
+import src.file.file
+from src.config.storage import StorageData
 
-abs_pth = os.path.abspath(sys.argv[0])
-your_dir = os.path.dirname(abs_pth)
+g = Storage.getConfig().getStorages()
+comp = g[0].getStorage().compare()
 
-for val in abs_pth,your_dir:
-    print(val)
+for d in comp:
+    oldFile = 'None'
+    newFile = 'None'
+
+    if not d.oldFile is None:
+        oldFile = d.oldFile.path
+
+    if not d.newFile is None:
+        newFile = d.newFile.path
+
+    print("Action: " + d.changedFileType.name + " newFile: " + newFile + " oldFile: " + oldFile)
+
+if len(comp) == 0:
+    print('NO CHANGES')
+
+#x = g[0].getStorage().proceedComparation(comp)
+
+#print(x)
 """)
 
 exec(base64.b64decode(your_code))
