@@ -51,7 +51,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "build/*.exe"
+        artifacts: "build/*.exe, README.md"
         bodyFile: "README.md"
         generateReleaseNotes: true
         name: ${{ steps.generate_release_tag.outputs.next_release_tag }}
