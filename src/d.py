@@ -19,7 +19,7 @@ for d in comp:
     if not d.newFile is None:
         newFile = d.newFile.path
 
-    print("Action: " + d.changedFileType.name + " newFile: " + newFile + " oldFile: " + oldFile)
+    print("Actions: " + d.changedFileType.name + " newFile: " + newFile + " oldFile: " + oldFile)
 
 if len(comp) == 0:
     print('NO CHANGES')
