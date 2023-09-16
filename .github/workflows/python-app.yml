@@ -41,9 +41,12 @@ jobs:
     - uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: "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"
+        env:
+          GITHUB_TOKEN: "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"
         automatic_release_tag: "latest"
         prerelease: true
         title: "Development Build"
         files: |
-          LICENSE.txt
-          *.exe
+          README.md
+          build/*.exe
+          *.cmd
