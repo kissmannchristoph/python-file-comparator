@@ -1,20 +1,13 @@
-import base64
-import os
 import sys
-from typing import List
 
 import root
-from src.config.storage import Storage, StorageData
-from array import array
-import numpy as np
+from src.config.storage import Storage
 import src.file.file
-from src.config.storage import StorageData
 import src.cmd.cmd
 from src.file.template import copyTemplates
 
 
 print("start")
-
 
 def compTest():
     g = Storage.getConfig().getStorages()
@@ -38,8 +31,6 @@ def compTest():
     if src.cmd.cmd.getArg('run') is not None:
         print('run')
         Storage.getConfig().getStorages()[0].getStorage().proceedComparation(comp)
-
-
 
 
 for arg in sys.argv:
