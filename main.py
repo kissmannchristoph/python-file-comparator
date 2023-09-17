@@ -23,8 +23,6 @@ def getSysPath():
         return sys.argv[1].replace("'", "")
 
 
-ROOT_PATH = getSysPath()
-
 if MAIN_PATH != getSysPath():
     print("set new MAIN_PATH: " + os.path.dirname(getSysPath()))
     MAIN_PATH = os.path.dirname(getSysPath())
@@ -32,15 +30,13 @@ if MAIN_PATH != getSysPath():
 for arg in sys.argv:
     print("ARG: " + arg)
 
-for tpl in copyTemplates(ROOT_PATH):
-    print("Template: " + tpl)
-
 for tpl in copyTemplates(MAIN_PATH):
     print("PACKAGE Template: " + tpl)
 
 src.cmd.cmd.watchInput()
 
 print("watchInput")
+
 
 def compTest():
     g = Storage.getConfig().getStorages()
