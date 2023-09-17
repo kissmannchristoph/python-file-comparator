@@ -1,12 +1,7 @@
 from typing import List
 
-import numpy
-
 import root
-from root import getMainPath
 import json
-from array import array
-import numpy as np
 from enum import Enum
 
 from src.file.file import FileUtils
