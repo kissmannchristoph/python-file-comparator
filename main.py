@@ -6,8 +6,8 @@ import src.file.file
 import src.cmd.cmd
 from src.file.template import copyTemplates
 
-
 print("start")
+
 
 def compTest():
     g = Storage.getConfig().getStorages()
@@ -18,10 +18,10 @@ def compTest():
         newFile = 'None'
 
         if not d.oldFile is None:
-            oldFile = d.oldFile.path
+            oldFile = d.oldFile.path + " hash(" + d.oldFile.hash + ")"
 
         if not d.newFile is None:
-            newFile = d.newFile.path
+            newFile = d.newFile.path + " hash(" + d.newFile.hash + ")"
 
         print("Action: " + d.changedFileType.name + " newFile: " + newFile + " oldFile: " + oldFile)
 

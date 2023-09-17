@@ -26,10 +26,12 @@ class ChangedFileAction(Enum):
 class File(object):
     name: str
     path: str
+    hash: str
 
-    def __init__(self, name: str, path: str):
+    def __init__(self, name: str, path: str, hash: str):
         self.name = name
         self.path = path
+        self.hash = hash
 
 
 class ChangedFile(object):
@@ -89,7 +91,8 @@ class Storage:
                     None,
                     File(
                         teamsFile,
-                        teamsFile
+                        teamsFile,
+                        FileUtils.getFileHash(teamsFile),
                     )
                 ))
 
@@ -100,11 +103,13 @@ class Storage:
                     ChangedFileType.CHANGED_FILE_TYPE_UPDATE,
                     File(
                         self.getPath() + teamsFile.replace('C:\\', ''),
-                        self.getPath() + teamsFile.replace('C:\\', '')
+                        self.getPath() + teamsFile.replace('C:\\', ''),
+                        FileUtils.getFileHash(self.getPath() + teamsFile.replace('C:\\', '')),
                     ),
                     File(
                         teamsFile,
-                        teamsFile
+                        teamsFile,
+                        FileUtils.getFileHash(teamsFile),
                     )
                 ))
 
@@ -117,7 +122,8 @@ class Storage:
                 ChangedFileType.CHANGED_FILE_TYPE_DELETE,
                 File(
                     removedFile,
-                    removedFile
+                    removedFile,
+                    FileUtils.getFileHash(removedFile),
                 ),
                 None
             ))
