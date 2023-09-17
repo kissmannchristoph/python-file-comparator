@@ -1,8 +1,8 @@
 import os
 import json
+import root
 
-MAIN_PATH = os.path.dirname(os.path.realpath(__file__)) + '\\..\\..\\'
-CONFIG_FILE = MAIN_PATH + 'config.json'
+CONFIG_FILE = root.getMainPath('config.json')
 
 
 class ConfigData:

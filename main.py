@@ -3,6 +3,7 @@ import os
 import sys
 from typing import List
 
+import root
 from src.config.storage import Storage, StorageData
 from array import array
 import numpy as np
@@ -11,9 +12,9 @@ from src.config.storage import StorageData
 import src.cmd.cmd
 from src.file.template import copyTemplates
 
-MAIN_PATH = os.path.dirname(os.path.realpath(__file__))
 
 print("start")
+
 
 def compTest():
     g = Storage.getConfig().getStorages()
@@ -38,21 +39,13 @@ def compTest():
         print('run')
         Storage.getConfig().getStorages()[0].getStorage().proceedComparation(comp)
 
-def getSysPath():
-    if src.cmd.cmd.getArg('fromstart') is None:
-        return sys.argv[0].replace("'", "")
-    else:
-        return sys.argv[1].replace("'", "")
 
 
-if MAIN_PATH != getSysPath():
-    print("set new MAIN_PATH: " + os.path.dirname(getSysPath()))
-    MAIN_PATH = os.path.dirname(getSysPath())
 
 for arg in sys.argv:
     print("ARG: " + arg)
 
-for tpl in copyTemplates(MAIN_PATH):
+for tpl in copyTemplates(root.getMainPath()):
     print("PACKAGE Template: " + tpl)
 
 if src.cmd.cmd.getArg('compare') is not None:
@@ -60,5 +53,3 @@ if src.cmd.cmd.getArg('compare') is not None:
     compTest()
 
 print("watchInput")
-
-
