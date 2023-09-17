@@ -2,7 +2,8 @@ from typing import List
 
 import numpy
 
-from src.config.config import MAIN_PATH
+import root
+from root import getMainPath
 import json
 from array import array
 import numpy as np
@@ -10,8 +11,8 @@ from enum import Enum
 
 from src.file.file import FileUtils
 
-STORAGE_PATH = MAIN_PATH + 'storage\\'
-CONFIG_FILE = STORAGE_PATH + 'config.json'
+STORAGE_PATH = root.getMainPath('storage')
+CONFIG_FILE = root.getMainPath('storage', 'config.json')
 DEFAULT_STORAGE = 'main'
 
 
@@ -63,6 +64,7 @@ class Storage:
     @staticmethod
     def getConfig():
         # open text file in read mode
+        print(CONFIG_FILE)
         text_file = open(CONFIG_FILE, "r")
 
         # read whole file to a string
