@@ -15,29 +15,6 @@ MAIN_PATH = os.path.dirname(os.path.realpath(__file__))
 
 print("start")
 
-
-def getSysPath():
-    if src.cmd.cmd.getArg('fromstart') is None:
-        return sys.argv[0].replace("'", "")
-    else:
-        return sys.argv[1].replace("'", "")
-
-
-if MAIN_PATH != getSysPath():
-    print("set new MAIN_PATH: " + os.path.dirname(getSysPath()))
-    MAIN_PATH = os.path.dirname(getSysPath())
-
-for arg in sys.argv:
-    print("ARG: " + arg)
-
-for tpl in copyTemplates(MAIN_PATH):
-    print("PACKAGE Template: " + tpl)
-
-src.cmd.cmd.watchInput()
-
-print("watchInput")
-
-
 def compTest():
     g = Storage.getConfig().getStorages()
     comp = g[0].getStorage().compare()
@@ -56,3 +33,32 @@ def compTest():
 
     if len(comp) == 0:
         print('NO CHANGES')
+
+    if src.cmd.cmd.getArg('run') is not None:
+        print('run')
+        Storage.getConfig().getStorages()[0].getStorage().proceedComparation(comp)
+
+def getSysPath():
+    if src.cmd.cmd.getArg('fromstart') is None:
+        return sys.argv[0].replace("'", "")
+    else:
+        return sys.argv[1].replace("'", "")
+
+
+if MAIN_PATH != getSysPath():
+    print("set new MAIN_PATH: " + os.path.dirname(getSysPath()))
+    MAIN_PATH = os.path.dirname(getSysPath())
+
+for arg in sys.argv:
+    print("ARG: " + arg)
+
+for tpl in copyTemplates(MAIN_PATH):
+    print("PACKAGE Template: " + tpl)
+
+if src.cmd.cmd.getArg('compare') is not None:
+    print('compare')
+    compTest()
+
+print("watchInput")
+
+
