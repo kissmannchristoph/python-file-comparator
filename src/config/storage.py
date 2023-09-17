@@ -104,7 +104,7 @@ class Storage:
                     File(
                         self.getPath() + teamsFile.replace('C:\\', ''),
                         self.getPath() + teamsFile.replace('C:\\', ''),
-                        FileUtils.getFileHash(self.getPath() + teamsFile.replace('C:\\', '')),
+                        FileUtils.getFileHash(root.getMainPath(teamsFile.replace('C:\\', ''))),
                     ),
                     File(
                         teamsFile,
