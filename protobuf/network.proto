@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package network;
+
+import "types.proto";
+
+message ListSyncFoldersResponse {
+  repeated types.SyncFolder syncFolders = 1;
+}
+
+message AddSyncFolderRequest {
+
+}
+
+message RemoveSyncFolderRequest {
+
+}
+
+message StartSyncRequest {
+  
+}
