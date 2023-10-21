@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package types;
+package src.shared.types;
 
 message SyncFolder {
     string name = 1;
