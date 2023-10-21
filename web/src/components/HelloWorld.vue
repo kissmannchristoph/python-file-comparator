@@ -2,11 +2,6 @@
 import { version } from 'vuetify';
 
 import Meta from '@/Meta';
-import type { SyncFolderResponse } from '@/shared/network';
-
-const a = {
-  syncFolders: [],
-} as SyncFolderResponse;
 
 const title = import.meta.env.VITE_APP_TITLE;
 

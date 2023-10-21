@@ -6,7 +6,7 @@ from sqlitemodel import SQL
 from src.database.model.SyncFolderModel import SyncFolder
 import pickle
 from json import JSONEncoder
-from src.shared import types_pb2
+from src.shared.types_pb2 import *
 from src.shared.network_pb2 import ListSyncFoldersResponse
 from google.protobuf.json_format import MessageToJson
 
@@ -48,7 +48,7 @@ async def ListSyncFolders(sid, data = None):
    folders = []
    
    for f in SyncFolder().select(SQL()):
-    folders.append(types_pb2.SyncFolder(name=f.name, targetFolder=f.targetFolder, originFolder=f.originFolder))
+    folders.append(SharedSyncFolder(name=f.name, targetFolder=f.targetFolder, originFolder=f.originFolder))
 
    response = ListSyncFoldersResponse(syncFolders=folders)
    await sio.emit("ListSyncFolders", MessageToJson(response))

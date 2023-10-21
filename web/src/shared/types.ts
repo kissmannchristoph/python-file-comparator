@@ -1,7 +1,7 @@
 /* eslint-disable */
 import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = "types";
+export const protobufPackage = "src.shared.types";
 
 export interface SyncFolder {
   name: string;

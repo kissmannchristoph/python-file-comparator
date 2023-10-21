@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package network;
+package src.shared.network;
 
 import "types.proto";
 
 message ListSyncFoldersResponse {
-  repeated types.SyncFolder syncFolders = 1;
+  repeated src.shared.types.SyncFolder syncFolders = 1;
 }
 
 message AddSyncFolderRequest {

@@ -2,7 +2,7 @@
 import * as _m0 from "protobufjs/minimal";
 import { SyncFolder } from "./types";
 
-export const protobufPackage = "network";
+export const protobufPackage = "src.shared.network";
 
 export interface ListSyncFoldersResponse {
   syncFolders: SyncFolder[];
