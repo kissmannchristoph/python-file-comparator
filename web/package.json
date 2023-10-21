@@ -40,7 +40,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@mdi/font": "^7.2.96",
+    "@mdi/font": "^7.3.67",
     "core-js": "^3.33.1",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.0",
