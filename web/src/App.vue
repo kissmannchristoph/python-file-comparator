@@ -17,6 +17,7 @@ import { useTheme } from 'vuetify';
 import logo from '@/assets/logo.svg';
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
+import * as Socket from '@/socket/Socket';
 
 /** Vuetify Theme */
 const theme = useTheme();
@@ -69,6 +70,14 @@ const onSnackbarChanged = async () => {
 
 onMounted(() => {
   document.title = title;
+
+  const client = Socket.connectClient();
+  client.on('connect', () => {
+    client.on('ListSyncFolders', (data) => {
+      console.log(data);
+    });
+    client.emit("ListSyncFolders");
+  })
 });
 </script>
 

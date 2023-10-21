@@ -12,14 +12,14 @@ const items: DrawerMenuItem[] = [
     title: '-', // Divider
   },
   {
-    title: 'About',
+    title: 'Sync Folders',
     icon: 'mdi-information',
-    to: { name: 'About' },
+    to: { name: 'syncFolders' },
   },
   {
-    title: 'Disabled Item',
+    title: 'Sync Manager',
     icon: 'mdi-cancel',
-    // empty `to` value becomes to disabled item
+    to: { name: 'syncManager' },
   },
 ];
 </script>

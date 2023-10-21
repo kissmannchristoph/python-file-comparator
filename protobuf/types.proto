@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package types;
+
+message SyncFolder {
+    string name = 1;
+    string targetFolder = 2;
+    string originFolder = 3;
+}

@@ -1,5 +1,10 @@
 {
+  "scripts": {
+    "cz": "npx git-cz",
+    "generate:types": "protoc --proto_path=protobuf --python_out=src/shared --pyi_out=src/shared --plugin=protoc-gen-ts_proto=\".\\node_modules\\.bin\\protoc-gen-ts_proto.cmd\" --ts_proto_out=web/src/shared network.proto types.proto"
+  },
   "dependencies": {
-    "git-cz": "^4.9.0"
+    "git-cz": "^4.9.0",
+    "ts-proto": "^1.162.1"
   }
 }
