@@ -699,10 +699,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webfontloader@npm:^1.6.35":
-  version: 1.6.35
-  resolution: "@types/webfontloader@npm:1.6.35"
-  checksum: 8a809e1f8041fc9f7ec1df82d6e841bfc51732a3aa0b56a4e3d2abab86a8abce1b0db90dc9d2c594fd0d77034e2670cae3cfb714a902a0112985fa04fd4a61c8
+"@types/webfontloader@npm:^1.6.36":
+  version: 1.6.36
+  resolution: "@types/webfontloader@npm:1.6.36"
+  checksum: 7f429fc253446f0f11f0aea5d88dfc67d272668277d8a1be7691277de76717b9435d9a65676267c9e5562634a7efbb366bc24fc68f5b507c6f1be9fd1a93bb2f
   languageName: node
   linkType: hard
 
@@ -7207,7 +7207,7 @@ __metadata:
     "@tsconfig/node-lts": ^18.12.5
     "@types/jsdom": ^21.1.4
     "@types/node": ^20.8.0
-    "@types/webfontloader": ^1.6.35
+    "@types/webfontloader": ^1.6.36
     "@typescript-eslint/eslint-plugin": ^6.8.0
     "@vitejs/plugin-vue": ^4.3.4
     "@vitest/coverage-c8": ^0.33.0
