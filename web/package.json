@@ -45,7 +45,7 @@
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.0",
     "socket.io-client": "^4.7.2",
-    "vue": "^3.3.6",
+    "vue": "^3.3.7",
     "vue-router": "^4.2.5",
     "vuetify": "^3.3.22",
     "webfontloader": "^1.6.28"
