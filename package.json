@@ -10,6 +10,6 @@
   },
   "dependencies": {
     "git-cz": "^4.9.0",
-    "ts-proto": "^1.164.0"
+    "ts-proto": "^1.166.3"
   }
 }
