@@ -2226,10 +2226,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.33.1":
-  version: 3.33.1
-  resolution: "core-js@npm:3.33.1"
-  checksum: 3a95003b0e77995203587117f3bde7f4e96adf434b6b78033dbe60347ffe38b2bac31eafab6a4cc641e5766062846b52f336ab4553fc0902c278959af4778e53
+"core-js@npm:^3.38.1":
+  version: 3.38.1
+  resolution: "core-js@npm:3.38.1"
+  checksum: 55703c2f6fcd537e47a5cc83e9dc9884efef61861bbefb4a96a8c95e87956db980ce314628465dd49f14e626c5e633b9e3433f3e4a1f628404a14da420eb2556
   languageName: node
   linkType: hard
 
@@ -7692,7 +7692,7 @@ __metadata:
     "@vue/eslint-config-typescript": ^12.0.0
     "@vue/test-utils": ^2.4.1
     "@vue/tsconfig": ^0.4.0
-    core-js: ^3.33.1
+    core-js: ^3.38.1
     eslint: ^8.52.0
     eslint-config-standard-with-typescript: ^39.1.1
     eslint-import-resolver-alias: ^1.1.2
