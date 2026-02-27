@@ -7724,7 +7724,7 @@ __metadata:
     stylelint-config-recommended-vue: ^1.5.0
     stylelint-order: ^6.0.3
     typescript: "*"
-    vite: ^5.1.0
+    vite: ^5.1.8
     vite-plugin-checker: 0.6.2
     vite-plugin-vuetify: ^1.0.2
     vitest: ^0.34.6
@@ -7736,9 +7736,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"vite@npm:5.1.0":
-  version: 5.1.0
-  resolution: "vite@npm:5.1.0"
+"vite@npm:5.1.8":
+  version: 5.1.8
+  resolution: "vite@npm:5.1.8"
   dependencies:
     esbuild: ^0.19.3
     fsevents: ~2.3.3
@@ -7772,7 +7772,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 36b289414c2cc91f03b2e88dbac68b2714c50b1fbc5735f48987f2ba34dd18eb91dc2604e8cbccda776649a1d49d171db5239377e54941bc3a8a705c50a65474
+  checksum: e5c5c0ad918d2e102200fec08e5e3936ba0c2be62475d5690b3a6940022ff6e5c90e739f38d17b4d3a7e30e8bd8f910f4238ab6ea7936b770595f2238d36b9b5
   languageName: node
   linkType: hard
 
